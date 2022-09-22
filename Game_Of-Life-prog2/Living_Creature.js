@@ -1,4 +1,4 @@
-class Living_Creature {
+module.exports = class Living_Creature {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -14,6 +14,19 @@ class Living_Creature {
             [this.x, this.y + 1    ],
             [this.x + 1, this.y + 1],
         ]
+    }
+
+    getNewCoordinates() {
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
     }
 
 
@@ -34,3 +47,5 @@ class Living_Creature {
         return found;
     }
 }
+
+

@@ -1,4 +1,7 @@
-class Predator extends Living_Creature{
+let Living_Creature = require("./Living_Creature")
+
+
+module.exports = class Predator extends Living_Creature{
     constructor(x, y) {
         super(x,y)
         this.energy = 8;
@@ -6,39 +9,12 @@ class Predator extends Living_Creature{
         this.directions = [];
     }
 
-    getNewCoordinates() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
-
-    chooseCell(character) {
-        this.getNewCoordinates()
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
-    }
+    
 
     mul() {
         this.multiply++;
-        var emptyCells = this.chooseCell(2);
-        var newCell = random(emptyCells);
+        var emptyCells = super.chooseCell(2);
+        var newCell = emptyCells[Math.random() * emptyCells.length];
 
         console.log(emptyCells);
         if (newCell && this.multiply >= 12) {
@@ -54,8 +30,8 @@ class Predator extends Living_Creature{
 
     move() {
         this.energy--
-        var emptyCells = this.chooseCell(0)
-        var newCell = random(emptyCells);
+        var emptyCells = super.chooseCell(0)
+        var newCell = emptyCells[Math.random() * emptyCells.length];
 
         if (newCell && this.energy >= 0) {
             console.log(newCell)
@@ -74,8 +50,8 @@ class Predator extends Living_Creature{
     }
 
     eat() {
-        var emptyCells = this.chooseCell(2)
-        var newCell = random(emptyCells);
+        var emptyCells = super.chooseCell(2)
+        var newCell = emptyCells[Math.random() * emptyCells.length];
 
         if (newCell) {
             this.energy++
