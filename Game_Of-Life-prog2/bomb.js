@@ -15,7 +15,7 @@ module.exports = class Bomb extends Living_Creature{
         var emptyCells = super.chooseCell(0);
         var newCell = emptyCells[Math.random() * emptyCells.length];
 
-        console.log(emptyCells);
+        
         if (newCell && this.multiply >= 15) {
             var newX = newCell[0];
             var newY = newCell[1];
@@ -33,7 +33,7 @@ module.exports = class Bomb extends Living_Creature{
         var newCell = emptyCells[Math.random() * emptyCells.length];
 
         if (newCell && this.energy >= 0) {
-            console.log(newCell)
+            
             var newX = newCell[0]
             var newY = newCell[1]
             matrix[newY][newX] = matrix[this.y][this.x]
