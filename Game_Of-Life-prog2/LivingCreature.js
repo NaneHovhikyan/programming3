@@ -1,4 +1,4 @@
-module.exports = class Living_Creature {
+module.exports = class LivingCreature {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -16,6 +16,10 @@ module.exports = class Living_Creature {
         ]
     }
 
+
+
+
+
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -30,6 +34,9 @@ module.exports = class Living_Creature {
     }
 
 
+
+
+
     chooseCell(char) {
         var found = [];
 
@@ -42,10 +49,7 @@ module.exports = class Living_Creature {
                     found.push(this.directions[i])
                 }
             }
-
         }
         return found;
     }
 }
-
-

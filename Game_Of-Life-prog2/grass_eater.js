@@ -1,21 +1,23 @@
-let Living_Creature = require("./Living_Creature")
+let LivingCreature = require("./LivingCreature")
 
 
-module.exports = class GrassEater extends Living_Creature{
+module.exports = class GrassEater extends LivingCreature{
     constructor(x, y) {
-        super(x,y)
-        this.energy = 8;
-        this.multiply = 0
-        this.directions = [];
-    }
+    super(x,y)
+    this.energy = 8;
+    this.multiply = 0
+    this.directions = [];
+}
 
     
+
+
 
     mul() {
         this.multiply++;
         var emptyCells = super.chooseCell(1);
-        var newCell = emptyCells[Math.random() * emptyCells.length];
-
+        var newCell = emptyCells[Math.random() * emptyCells.length];  
+        
         
         if (newCell && this.multiply >= 8) {
             var newX = newCell[0];
@@ -28,10 +30,15 @@ module.exports = class GrassEater extends Living_Creature{
         }
     }
 
+
+
+
+
     move() {
         this.energy--
         var emptyCells = super.chooseCell(0)
         var newCell = emptyCells[Math.random() * emptyCells.length];
+
 
         if (newCell && this.energy >= 0) {
             
@@ -53,6 +60,7 @@ module.exports = class GrassEater extends Living_Creature{
         var emptyCells= super.chooseCell(1)
         var newCell = emptyCells[Math.random() * emptyCells.length];
 
+        
         if (newCell) {
             this.energy++
             var newX = newCell[0]

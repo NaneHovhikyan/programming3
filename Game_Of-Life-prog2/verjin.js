@@ -1,7 +1,7 @@
-let Living_Creature = require("./Living_Creature")
+let LivingCreature = require("./LivingCreature")
 
 
-module.exports = class Verjin extends Living_Creature{
+module.exports = class Verjin extends LivingCreature{
     constructor(x, y) {
         super(x,y)
         this.energy = 9;
